@@ -1,20 +1,33 @@
 name: hello world
-on: 
+on:
+
   push:
-    path:
-      - "!README.md"
-      - "!docs/**"
-      - "**.js"
-    branchs:
-      - 'master'
+    paths:
+      - '!README.md'
+      - '!docs/**'
+      - '**.js'
+    branches:
+      - 'main'
       - 'release/**'
       - '!dev/**'
   pull_request:
+<<<<<<< HEAD
     type: [opened,reopened,synchronize,labeled, ublabeled]
+=======
+    type: [opened, reopened, synchronize]
+
+>>>>>>> feature
   workflow_dispatch:
 jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
+      - if: ${{github.event_name == 'pull_request'}}
+        uses: mheap/github-action-required-labels@v1
+        with:
+          mode: exactly
+          count: 0
+          labels: "do not build"
       - run: echo "TODAY=$(date +%y-%m-%d)" >> $GITHUB_ENV
-      - run: echo hello world, today is $TODAY
+      - run: echo Hello world, today is $TODAY
+      - run: docker image ls
