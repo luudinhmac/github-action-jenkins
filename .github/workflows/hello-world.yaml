@@ -6,4 +6,5 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
-      - run: echo hello world
+      - run: echo "TODAY=$(date +%y-%m-%d)" >> GITHUB_ENV
+      - run: echo hello world, today is $TODAY
