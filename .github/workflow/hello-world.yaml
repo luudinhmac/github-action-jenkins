@@ -2,8 +2,8 @@ name: hello world
 on: 
   push:
     branchs: [master]
-jobs: 
+jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello world" 
+      - run: echo hello world
