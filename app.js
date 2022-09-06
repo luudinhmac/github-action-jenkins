@@ -4,7 +4,7 @@ const {add,minus} = require('./fuctions')
 console.log('Hello world');
 console.log('Today is beautiful day.');
 
-var a = 2
+var a = 3
 var b = 9
 
 console.log(util.format("Add: %d+%d=%d",a,b,add(a,b)))
