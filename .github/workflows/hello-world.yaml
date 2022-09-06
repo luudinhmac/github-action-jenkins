@@ -9,6 +9,8 @@ on:
       - 'master'
       - 'release/**'
       - '!dev/**'
+  pull_request:
+    type: [opened,reopened,synchronize,labeled, ublabeled]
   workflow_dispatch:
 jobs:
   say-hello:
