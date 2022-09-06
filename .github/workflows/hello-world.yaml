@@ -9,6 +9,7 @@ on:
       - 'master'
       - 'release/**'
       - '!dev/**'
+  workflow_dispatch:
 jobs:
   say-hello:
     runs-on: ubuntu-latest
