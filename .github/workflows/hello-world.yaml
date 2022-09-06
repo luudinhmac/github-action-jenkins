@@ -14,5 +14,11 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
+      - uses: mheap/github-action-required-labels@v2
+        with:
+          mode: exactly
+          count: 0
+          labels: "Do not build"
       - run: echo "TODAY=$(date +%y-%m-%d)" >> $GITHUB_ENV
       - run: echo hello world, today is $TODAY
+      - run: docker images
